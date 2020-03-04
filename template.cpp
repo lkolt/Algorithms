@@ -1,3 +1,9 @@
+/**
+    Author: Leonid Kanteev (@lkolt)
+    Github: github.com/lkolt/
+*/
+
+
 #include <bits/stdc++.h>
 
 /** Template */

@@ -32,3 +32,8 @@
 *.exe
 *.out
 *.app
+*.cbp
+
+# IDE
+*.ipynb_checkpoints*
+*.vscode*

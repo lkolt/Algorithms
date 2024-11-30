@@ -36,14 +36,41 @@ const ld EPS = 1e-8;
 
 /** Solution */
 
+vector<pii> segments;
+vector<pii> answer;
+
 int main()
 {
-  //  freopen("in.txt", "r", stdin);
-  //  freopen("out.txt", "w", stdout);
+//    freopen("in.txt", "r", stdin);
+//    freopen("out.txt", "w", stdout);
 
   //  cout << fixed << setprecision(5);
 
     ios_base::sync_with_stdio(false);
+
+    int n = readInt();
+    for (int i = 0; i < n; i++) {
+        int l = readInt();
+        int r = readInt();
+        // cout << l << " " << r << endl;
+        segments.push_back({r, l});
+    }
+
+    sort(segments.begin(), segments.end());
+
+    int cur_r = -10000;    
+    for (int i = 0; i < n; i++) {
+        if (segments[i].second >= cur_r) {
+            answer.push_back(segments[i]);
+            cur_r = segments[i].first;
+        }
+    }
+
+    cout << answer.size() << endl;
+    for (int i = 0; i < answer.size(); i++) {
+        cout << answer[i].second << " " << answer[i].first << endl;
+    }
+
 
 	return 0;
 }

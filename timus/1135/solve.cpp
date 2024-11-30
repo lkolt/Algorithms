@@ -36,14 +36,50 @@ const ld EPS = 1e-8;
 
 /** Solution */
 
+bool line[maxn];
+
 int main()
 {
-  //  freopen("in.txt", "r", stdin);
-  //  freopen("out.txt", "w", stdout);
+//    freopen("in.txt", "r", stdin);
+//    freopen("out.txt", "w", stdout);
 
   //  cout << fixed << setprecision(5);
 
     ios_base::sync_with_stdio(false);
+
+    int n = readInt();
+    int l = 0;
+    while (l < n) {
+        char c = readChar();
+        if (c == '<') {
+            line[l] = 0;
+            l++;
+        } else if (c == '>') {
+            line[l] = 1;
+            l++;
+        }
+    }
+
+    int ans = 0;
+    while (true) {
+        int i = 0;
+        int add = 0;
+        while (i < n - 1) {
+            if (line[i] && !line[i + 1]) {
+                line[i] = 0;
+                line[i + 1] = 1;
+                add++;
+                i++;
+            }
+            i++;
+        }
+        ans += add;
+        if (add == 0) {
+            break;
+        }
+    }
+
+    writeInt(ans);
 
 	return 0;
 }
